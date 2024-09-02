@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { FaCreditCard, FaPaypal, FaApple } from "react-icons/fa";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -53,12 +53,15 @@ export default function PaymentMethod() {
           </div>
 
           {selectedPaymentMethod === "card" && (
-            <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="First Last" />
-
-              <Label htmlFor="card-number">Card number</Label>
-              <Input id="card-number" placeholder="1234 5678 9123 0000" />
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="name">Name</Label>
+                <Input id="name" placeholder="First Last" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="card-number">Card number</Label>
+                <Input id="card-number" placeholder="1234 5678 9123 0000" />
+              </div>
 
               <div className="flex space-x-2">
                 <div className="flex-1">
@@ -118,13 +121,31 @@ export default function PaymentMethod() {
 
           {selectedPaymentMethod === "paypal" && (
             <div className="space-y-4">
-              {/* PayPal payment details */}
+              <div className="space-y-2">
+                <Label htmlFor="paypal-email">PayPal Email</Label>
+                <Input id="paypal-email" placeholder="example@paypal.com" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="paypal-password">Password</Label>
+                <Input id="paypal-password" type="password" placeholder="Your PayPal password" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="paypal-phone">Phone Number (optional)</Label>
+                <Input id="paypal-phone" placeholder="123-456-7890" />
+              </div>
             </div>
           )}
 
           {selectedPaymentMethod === "apple" && (
             <div className="space-y-4">
-              {/* Apple Pay payment details */}
+              <div className="space-y-2">
+                <Label htmlFor="apple-email-or-phone">Email or Phone Number</Label>
+                <Input id="apple-email-or-phone" placeholder="example@gmail.com or 123-456-7890" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="apple-password">Password</Label>
+                <Input id="apple-password" type="password" placeholder="Your wallet password" />
+              </div>
             </div>
           )}
         </CardContent>
