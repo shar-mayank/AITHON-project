@@ -3,10 +3,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import { FaCreditCard, FaPaypal, FaApple } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen items-center justify-center p-24">
       <Card className="w-[350px]">
         <CardHeader>
           <CardTitle>Payment Method</CardTitle>
@@ -16,9 +17,18 @@ export default function Home() {
         </CardHeader>
         <CardContent>
           <div className="flex space-x-4 mb-4">
-            <Button variant="outline" className="w-full">Card</Button>
-            <Button variant="outline" className="w-full">Paytm</Button>
-            <Button variant="outline" className="w-full">Google Pay</Button>
+            <Button variant="outline" className="w-full flex items-center space-x-2">
+              <FaCreditCard />
+              <span>Card</span>
+            </Button>
+            <Button variant="outline" className="w-full flex items-center space-x-2">
+              <FaPaypal />
+              <span>PayPal</span>
+            </Button>
+            <Button variant="outline" className="w-full flex items-center space-x-2">
+              <FaApple />
+              <span>Apple Pay</span>
+            </Button>
           </div>
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
@@ -27,7 +37,7 @@ export default function Home() {
             <Label htmlFor="card-number">Card number</Label>
             <Input id="card-number" placeholder="1234 5678 9123 0000" />
 
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 items-end">
               <div>
                 <Label htmlFor="month">Expires</Label>
                 <Select>
@@ -44,9 +54,7 @@ export default function Home() {
               </div>
 
               <div>
-                <Label htmlFor="year" className="sr-only">
-                  Year
-                </Label>
+                <Label htmlFor="year">Year</Label>
                 <Select>
                   <SelectTrigger id="year" className="w-[80px]">
                     <SelectValue placeholder="Year" />
